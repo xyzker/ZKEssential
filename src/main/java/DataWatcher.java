@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
@@ -7,9 +5,11 @@ import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooDefs;
 import org.apache.zookeeper.ZooKeeper;
 
+import java.io.IOException;
+
 public class DataWatcher implements Watcher, Runnable {
 	
-	private static String hostPort = "192.168.51.26:2181";
+	private static String hostPort = HelloZooKeeper.CONNECT_STRING;
 	private static String zooDataPath = "/MyConfig";
 	
 	byte zoo_data[] = null;

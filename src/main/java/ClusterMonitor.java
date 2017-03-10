@@ -1,12 +1,12 @@
-import java.io.IOException;
-import java.util.List;
-
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.ZooKeeper;
+
+import java.io.IOException;
+import java.util.List;
 
 
 public class ClusterMonitor implements Runnable {
@@ -101,7 +101,7 @@ public class ClusterMonitor implements Runnable {
 //            System.exit(0);
 //        }
 //        String hostPort = args[0];
-		String hostPort = "192.168.51.26:2181";
+		String hostPort = HelloZooKeeper.CONNECT_STRING;
         new ClusterMonitor(hostPort).run();
 	}
 }

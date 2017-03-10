@@ -1,14 +1,17 @@
 /*Our First ZooKeeper Program*/
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooKeeper;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class HelloZooKeeper {
+    public static final String CONNECT_STRING = "H5-Pad-web-online001-bjdx.qiyi.virtual:2181,H5-Pad-web-online002-bjdx.qiyi.virtual:2181,H5-Pad-web-online003-bjdx.qiyi.virtual:2181";
+
     public static void main(String[] args) throws IOException {
     	//域名或者IP配置
-        String hostPort = "192.168.51.26:2181";
+        String hostPort = CONNECT_STRING;
         String zpath = "/";
         List <String> zooChildren = new ArrayList <String> ();
         ZooKeeper zk = new ZooKeeper(hostPort, 2000, null);

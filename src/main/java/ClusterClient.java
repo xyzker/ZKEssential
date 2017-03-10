@@ -1,12 +1,12 @@
-import java.io.IOException;
-import java.lang.management.ManagementFactory;
-
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.ZooKeeper;
+
+import java.io.IOException;
+import java.lang.management.ManagementFactory;
 
 
 public class ClusterClient implements Watcher, Runnable {
@@ -66,7 +66,7 @@ public class ClusterClient implements Watcher, Runnable {
 //      System.exit(0);
 //  }
 //  String hostPort = args[0];
-	String hostPort = "192.168.51.26:2181";
+	String hostPort = HelloZooKeeper.CONNECT_STRING;
         //Get the process id
         String name = ManagementFactory.getRuntimeMXBean().getName();
         int index = name.indexOf('@');

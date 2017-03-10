@@ -1,14 +1,14 @@
-import java.io.IOException;
-import java.util.UUID;
-
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
 
+import java.io.IOException;
+import java.util.UUID;
+
 public class DataUpdater implements Watcher {
 	
-	private static String hostPort = "192.168.51.26:2181";
+	private static String hostPort = HelloZooKeeper.CONNECT_STRING;
 	private static String zooDataPath = "/MyConfig";
 	
 	ZooKeeper zk;
