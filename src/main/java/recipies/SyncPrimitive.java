@@ -208,16 +208,16 @@ public class SyncPrimitive implements Watcher {
                         System.out.println("Going to wait");
                         mutex.wait();
                     } else {
-                        Integer min = new Integer(list.get(0).substring(7));
+                        String minStr = list.get(0).substring(7);
                         for(String s : list){
-                            Integer tempValue = new Integer(s.substring(7));
+                            String tempStr = s.substring(7);
                             //System.out.println("Temporary value: " + tempValue);
-                            if(tempValue < min) min = tempValue;
+                            if(Integer.parseInt(tempStr) < Integer.parseInt(minStr)) minStr = tempStr;
                         }
-                        System.out.println("Temporary value: " + root + "/element" + min);
-                        byte[] b = zk.getData(root + "/element" + min,
+                        System.out.println("Temporary value: " + root + "/element" + minStr);
+                        byte[] b = zk.getData(root + "/element" + minStr,
                                 false, stat);
-                        zk.delete(root + "/element" + min, 0);
+                        zk.delete(root + "/element" + minStr, 0);
                         ByteBuffer buffer = ByteBuffer.wrap(b);
                         retvalue = buffer.getInt();
 
