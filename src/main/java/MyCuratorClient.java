@@ -5,7 +5,7 @@ import org.apache.zookeeper.ZooDefs;
 
 public class MyCuratorClient {
 	public void testCuratorClient() throws Exception {
-		CuratorZookeeperClient client = new CuratorZookeeperClient("192.168.51.26:2181", 10000, 10000, null,
+		CuratorZookeeperClient client = new CuratorZookeeperClient(HelloZooKeeper.CONNECT_STRING, 10000, 10000, null,
 				new RetryOneTime(1));
 		client.start();
 		try {
